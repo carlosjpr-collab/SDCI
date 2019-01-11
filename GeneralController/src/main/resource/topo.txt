@@ -1,0 +1,9 @@
+n client1 10.0.0.251
+n dc1
+n s1
+n gwi1 10.0.0.250
+n servIOT 10.0.0.249
+l client1 s1
+l dc1 s1
+l s1 gwi1
+l gwi1 servIOT

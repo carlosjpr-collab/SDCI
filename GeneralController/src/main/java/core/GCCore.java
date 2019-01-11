@@ -1,5 +1,6 @@
 package core;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,11 +19,8 @@ public class GCCore {
 		nfvAdapter = new NFVMANOAdapter();
 	}
 	
-	public List<Node> requestTopo(){
-		List<Node> list = new ArrayList<Node>();
-		//list = new
-		
-		return list;
+	public void requestTopo() throws IOException{
+		sdnAdapter.getTopoStatic();
 	}
 	
 }
