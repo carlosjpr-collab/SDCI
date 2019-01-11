@@ -1,21 +1,20 @@
 package core;
-
+import entities.Node;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import entities.Node;
-
 public class IHM {
 	
-	private GCCore gcCore = new GCCore();
+	private static  GCCore gcCore = new GCCore();
+	private static  List<Node> topoList; 
 	
 	public static void main( String[] args )
     {
 		menu();
     }
 	
-	public static void menu(){
+	public static  void menu(){
 		while(true) {
 			System.out.println("#### MENU ####");
 			System.out.println("Choisir une option : ");
@@ -25,10 +24,10 @@ public class IHM {
 			
 			Scanner sc = new Scanner(System.in);
 			int choice = sc.nextInt();
-			
 			switch(choice) {
 			case 1:
-				break;
+				topoList= gcCore.requestTopo();
+				topoList.forEach(System.out::println);
 			case 2:
 				break;
 			case 3:

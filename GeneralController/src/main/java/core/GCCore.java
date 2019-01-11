@@ -19,10 +19,7 @@ public class GCCore {
 	}
 	
 	public List<Node> requestTopo(){
-		List<Node> list = new ArrayList<Node>();
-		//list = new
-		
-		return list;
+		return sdnAdapter.getTopo() ;
 	}
 	
 }
