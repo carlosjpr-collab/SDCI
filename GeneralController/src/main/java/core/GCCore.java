@@ -1,26 +1,33 @@
 package core;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
+import com.spotify.docker.client.exceptions.DockerException;
+import com.spotify.docker.client.messages.Container;
+
+import adapters.DockerAdapter;
 import adapters.NFVMANOAdapter;
 import adapters.SDNCTRLAdapter;
-import entities.Node;
 
 public class GCCore {
-	
+
 	private SDNCTRLAdapter sdnAdapter;
 	private NFVMANOAdapter nfvAdapter;
-	//private List<Requests ? >
-	
+	private DockerAdapter dockerAdapter;
+	// private List<Requests ? >
+
 	public GCCore() {
 		sdnAdapter = new SDNCTRLAdapter();
 		nfvAdapter = new NFVMANOAdapter();
+		dockerAdapter = new DockerAdapter();
 	}
-	
-	public void requestTopo() throws IOException{
+
+	public void requestTopo() throws IOException {
 		sdnAdapter.getTopoStatic();
 	}
-	
+
+	public void requeststate(String name) throws DockerException, InterruptedException {
+		dockerAdapter.getContainerStat(name);
+	}
+
 }
